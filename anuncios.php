@@ -1,39 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="build/css/app.css">
-    <title>Anuncios</title>
-</head>
-
-<body>
-
-    <header class="header">
-        <div class="contenedor contenido-header">
-            <div class="barra">
-
-                <a href="index.html"><img src="build/img/logo.svg" alt="Logo Bienes Raices"></a>
-
-                <div class="mobile-menu">
-                    <img src="build/img/barras.svg" alt="icono menu responsive">
-                </div>
-
-                <div class="derecha">
-                    <img class="btn-dark-mode" src="build/img/dark-mode.svg" alt="">
-                    <nav class="navegacion">
-                        <a href="nosotros.html">Nosotros</a>
-                        <a href="anuncios.html">Anuncios</a>
-                        <a href="blog.htm">Blog</a>
-                        <a href="contacto.html">Contacto</a>
-                    </nav>
-                </div>
-            </div><!--Cierre barra-->
-        </div>
-    </header>
-    <!--Cierre header-->
+ <?php
+require 'includes/funciones.php'; 
+incluirTemplate('header'); 
+?>
 
     <main class="seccion contenedor">
         <h2>Casas y Depas en Venta</h2>
@@ -68,7 +36,7 @@
                             <p>4</p>
                         </li>
                     </ul>
-                    <a href="anuncio.html" class="btn-amarillo-block">Ver Propiedad</a>
+                    <a href="anuncio.php" class="btn-amarillo-block">Ver Propiedad</a>
                 </div>
 
             </div>
@@ -104,7 +72,7 @@
                             <p>4</p>
                         </li>
                     </ul>
-                    <a href="anuncio.html" class="btn-amarillo-block">Ver Propiedad</a>
+                    <a href="anuncio.php" class="btn-amarillo-block">Ver Propiedad</a>
                 </div>
 
             </div>
@@ -140,7 +108,7 @@
                             <p>3</p>
                         </li>
                     </ul>
-                    <a href="anuncios.html" class="btn-amarillo-block">Ver Propiedad</a>
+                    <a href="anuncios.php" class="btn-amarillo-block">Ver Propiedad</a>
                 </div>
 
             </div>
@@ -176,7 +144,7 @@
                             <p>4</p>
                         </li>
                     </ul>
-                    <a href="anuncio.html" class="btn-amarillo-block">Ver Propiedad</a>
+                    <a href="anuncio.php" class="btn-amarillo-block">Ver Propiedad</a>
                 </div>
 
             </div>
@@ -212,7 +180,7 @@
                             <p>4</p>
                         </li>
                     </ul>
-                    <a href="anuncio.html" class="btn-amarillo-block">Ver Propiedad</a>
+                    <a href="anuncio.php" class="btn-amarillo-block">Ver Propiedad</a>
                 </div>
 
             </div>
@@ -248,7 +216,7 @@
                             <p>4</p>
                         </li>
                     </ul>
-                    <a href="anuncio.html" class="btn-amarillo-block">Ver Propiedad</a>
+                    <a href="anuncio.php" class="btn-amarillo-block">Ver Propiedad</a>
                 </div>
 
             </div>
@@ -257,24 +225,16 @@
 
 
 
-    <footer class="footer seccion">
-
-        <div class=" contenedor contenedor-footer">
-            <nav class="navegacion">
-                <a href="nosotros.html">Nosotros</a>
-                <a href="anuncios.html">Anuncios</a>
-                <a href="blog.htm">Blog</a>
-                <a href="contacto.html">Contacto</a>
-            </nav><!--Cierre navegacion-->
-        </div>
-        <p class="copyright">Todos los derechos reservados &copy;</p>
-
-    </footer>
+<?php
+incluirTemplate('footer');
+?>;
 
 
 
 
-    <script src="build/js/bundle.min.js"></script>
-</body>
+ 
 
-</html>
+
+
+
+ 

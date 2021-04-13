@@ -1,39 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="build/css/app.css">
-    <title>Blog</title>
-</head>
-
-<body>
-
-    <header class="header">
-        <div class="contenedor contenido-header">
-            <div class="barra">
-
-                <a href="index.html"><img src="build/img/logo.svg" alt="Logo Bienes Raices"></a>
-
-                <div class="mobile-menu">
-                    <img src="build/img/barras.svg" alt="icono menu responsive">
-                </div>
-
-                <div class="derecha">
-                    <img class="btn-dark-mode" src="build/img/dark-mode.svg" alt="">
-                    <nav class="navegacion">
-                        <a href="nosotros.html">Nosotros</a>
-                        <a href="anuncios.html">Anuncios</a>
-                        <a href="blog.htm">Blog</a>
-                        <a href="contacto.html">Contacto</a>
-                    </nav>
-                </div>
-            </div><!--Cierre barra-->
-        </div>
-    </header>
-    <!--Cierre header-->
+ <?php
+require 'includes/funciones.php'; 
+incluirTemplate('header'); 
+?>
 
 
         <main class="blog contenedor contenido-centrado">
@@ -47,7 +15,7 @@
                     </picture>
                 </div>
                 <div class="texto-entrada">
-                    <a href="entrada.html">
+                    <a href="entrada.php">
                         <h4>Terraza en el techo de tu casa</h4>
 
                 <p>Escrito el: <span>20/10/2021</span> por <span>Admin</span></p>
@@ -66,7 +34,7 @@
                     </picture>
                 </div>
                 <div class="texto-entrada">
-                    <a href="entrada.html">
+                    <a href="entrada.php">
                         <h4>Guia para la decoración de tu hogar</h4>
                         
                 <p>Escrito el: <span>20/10/2021</span> por <span>Admin</span></p>
@@ -85,7 +53,7 @@
                     </picture>
                 </div>
                 <div class="texto-entrada">
-                    <a href="entrada.html">
+                    <a href="entrada.php">
                         <h4>Terraza en el techo de tu casa</h4>
     
                 <p>Escrito el: <span>20/10/2021</span> por <span>Admin</span></p>
@@ -104,7 +72,7 @@
                     </picture>
                 </div>
                 <div class="texto-entrada">
-                    <a href="entrada.html">
+                    <a href="entrada.php">
                         <h4>Guia para la decoración de tu hogar</h4>
                         
                 <p>Escrito el: <span>20/10/2021</span> por <span>Admin</span></p>
@@ -118,24 +86,16 @@
 
 
 
-    <footer class="footer seccion">
-
-        <div class=" contenedor contenedor-footer">
-            <nav class="navegacion">
-                <a href="nosotros.html">Nosotros</a>
-                <a href="anuncios.html">Anuncios</a>
-                <a href="blog.htm">Blog</a>
-                <a href="contacto.html">Contacto</a>
-            </nav><!--Cierre navegacion-->
-        </div>
-        <p class="copyright">Todos los derechos reservados &copy;</p>
-
-    </footer>
+<?php
+incluirTemplate('footer');
+?>;
 
 
 
 
-    <script src="build/js/bundle.min.js"></script>
-</body>
+ 
 
-</html>
+
+
+
+ 
