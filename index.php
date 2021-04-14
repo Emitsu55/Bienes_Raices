@@ -7,21 +7,21 @@ incluirTemplate('header', $inicio = true);
         <h1>Más sobre nosotros</h1>
         <div class="contenedor iconos-nosotros">
             <div class="icono">
-                <img src="build/img/icono1.svg" alt="icono Seguridad" loading='lazy'>
+                <img src="/build/img/icono1.svg" alt="icono Seguridad" loading='lazy'>
                 <h3>Seguridad</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ratione dolore a, inventore
                     quaerat quas aliquam praesentium expedita vel similique ducimus! Hic possimus odio nam. Asperiores
                     corporis eum impedit labore?</p>
             </div>
             <div class="icono">
-                <img src="build/img/icono2.svg" alt="icono precio" loading='lazy'>
+                <img src="/build/img/icono2.svg" alt="icono precio" loading='lazy'>
                 <h3>Precio</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ratione dolore a, inventore
                     quaerat quas aliquam praesentium expedita vel similique ducimus! Hic possimus odio nam. Asperiores
                     corporis eum impedit labore?</p>
             </div>
             <div class="icono">
-                <img src="build/img/icono3.svg" alt="icono a tiempo" loading='lazy'>
+                <img src="/build/img/icono3.svg" alt="icono a tiempo" loading='lazy'>
                 <h3>A tiempo</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ratione dolore a, inventore
                     quaerat quas aliquam praesentium expedita vel similique ducimus! Hic possimus odio nam. Asperiores
@@ -35,9 +35,9 @@ incluirTemplate('header', $inicio = true);
         <div class="contenedor-anuncios">
             <div class="anuncio">
                 <picture>
-                    <source srcset="build/img/anuncio1.webp" type="image/webp">
-                    <source srcset="build/img/anuncio1.jpeg" type="image/jpeg">
-                    <img loading="lazy" src="build/img/anuncio1.jpg" alt="anuncio">
+                    <source srcset="/build/img/anuncio1.webp" type="image/webp">
+                    <source srcset="/build/img/anuncio1.jpeg" type="image/jpeg">
+                    <img loading="lazy" src="/build/img/anuncio1.jpg" alt="anuncio">
                 </picture>
                 <div class="contenido-anuncio">
 
@@ -49,16 +49,16 @@ incluirTemplate('header', $inicio = true);
                      
                     <ul class="iconos-caracteristicas">
                         <li>
-                            <img class="icono" src="build/img/icono_wc.svg" class="icono" alt="icono wc" loading='lazy'>
+                            <img class="icono" src="/build/img/icono_wc.svg" class="icono" alt="icono wc" loading='lazy'>
                             <p>3</p>
                         </li>
                         <li>
-                            <img class="icono" src="build/img/icono_estacionamiento.svg" class="icono"
+                            <img class="icono" src="/build/img/icono_estacionamiento.svg" class="icono"
                                 alt="icono icono_estacionamiento" loading='lazy'>
                             <p>3</p>
                         </li>
                         <li>
-                            <img class="icono" src="build/img/icono_dormitorio.svg" class="icono" alt="icono dormitorio"
+                            <img class="icono" src="/build/img/icono_dormitorio.svg" class="icono" alt="icono dormitorio"
                                 loading='lazy'>
                             <p>4</p>
                         </li>
@@ -69,9 +69,9 @@ incluirTemplate('header', $inicio = true);
             </div>
             <div class="anuncio">
                 <picture>
-                    <source srcset="build/img/anuncio2.webp" type="image/webp">
-                    <source srcset="build/img/anuncio2.jpeg" type="image/jpeg">
-                    <img loading="lazy" src="build/img/anuncio3.jpg" alt="anuncio">
+                    <source srcset="/build/img/anuncio2.webp" type="image/webp">
+                    <source srcset="/build/img/anuncio2.jpeg" type="image/jpeg">
+                    <img loading="lazy" src="/build/img/anuncio3.jpg" alt="anuncio">
                 </picture>
                 <div class="contenido-anuncio">
 
@@ -85,16 +85,16 @@ incluirTemplate('header', $inicio = true);
                      
                     <ul class="iconos-caracteristicas">
                         <li>
-                            <img class="icono" src="build/img/icono_wc.svg" class="icono" alt="icono wc" loading='lazy'>
+                            <img class="icono" src="/build/img/icono_wc.svg" class="icono" alt="icono wc" loading='lazy'>
                             <p>3</p>
                         </li>
                         <li>
-                            <img class="icono" src="build/img/icono_estacionamiento.svg" class="icono"
+                            <img class="icono" src="/build/img/icono_estacionamiento.svg" class="icono"
                                 alt="icono icono_estacionamiento" loading='lazy'>
                             <p>3</p>
                         </li>
                         <li>
-                            <img class="icono" src="build/img/icono_dormitorio.svg" class="icono" alt="icono dormitorio"
+                            <img class="icono" src="/build/img/icono_dormitorio.svg" class="icono" alt="icono dormitorio"
                                 loading='lazy'>
                             <p>4</p>
                         </li>
@@ -105,9 +105,9 @@ incluirTemplate('header', $inicio = true);
             </div>
             <div class="anuncio">
                 <picture>
-                    <source srcset="build/img/anuncio3.webp" type="image/webp">
-                    <source srcset="build/img/anuncio3.jpeg" type="image/jpeg">
-                    <img loading="lazy" src="build/img/anuncio3.jpg" alt="anuncio">
+                    <source srcset="/build/img/anuncio3.webp" type="image/webp">
+                    <source srcset="/build/img/anuncio3.jpeg" type="image/jpeg">
+                    <img loading="lazy" src="/build/img/anuncio3.jpg" alt="anuncio">
                 </picture>
                 <div class="contenido-anuncio">
 
@@ -121,16 +121,16 @@ incluirTemplate('header', $inicio = true);
                      
                     <ul class="iconos-caracteristicas">
                         <li>
-                            <img class="icono" src="build/img/icono_wc.svg" class="icono" alt="icono wc" loading='lazy'>
+                            <img class="icono" src="/build/img/icono_wc.svg" class="icono" alt="icono wc" loading='lazy'>
                             <p>3</p>
                         </li>
                         <li>
-                            <img class="icono" src="build/img/icono_estacionamiento.svg" class="icono"
+                            <img class="icono" src="/build/img/icono_estacionamiento.svg" class="icono"
                                 alt="icono icono_estacionamiento" loading='lazy'>
                             <p>3</p>
                         </li>
                         <li>
-                            <img class="icono" src="build/img/icono_dormitorio.svg" class="icono" alt="icono dormitorio"
+                            <img class="icono" src="/build/img/icono_dormitorio.svg" class="icono" alt="icono dormitorio"
                                 loading='lazy'>
                             <p>3</p>
                         </li>
@@ -161,9 +161,9 @@ incluirTemplate('header', $inicio = true);
             <article class="entrada-blog">
                 <div class="imagen">
                     <picture>
-                        <source srcset="build/img/blog1.webp" type="image/webp">
-                        <source srcset="build/img/blog1.jpeg" type="image/jpeg">
-                        <img loading="lazy" src="build/img/blog1.jpg" alt="Entrada blog">
+                        <source srcset="/build/img/blog1.webp" type="image/webp">
+                        <source srcset="/build/img/blog1.jpeg" type="image/jpeg">
+                        <img loading="lazy" src="/build/img/blog1.jpg" alt="Entrada blog">
                     </picture>
                 </div>
                 <div class="texto-entrada">
@@ -180,9 +180,9 @@ incluirTemplate('header', $inicio = true);
             <article class="entrada-blog">
                 <div class="imagen">
                     <picture>
-                        <source srcset="build/img/blog2.webp" type="image/webp">
-                        <source srcset="build/img/blog2.jpeg" type="image/jpeg">
-                        <img loading="lazy" src="build/img/blog2.jpg" alt="Entrada blog">
+                        <source srcset="/build/img/blog2.webp" type="image/webp">
+                        <source srcset="/build/img/blog2.jpeg" type="image/jpeg">
+                        <img loading="lazy" src="/build/img/blog2.jpg" alt="Entrada blog">
                     </picture>
                 </div>
                 <div class="texto-entrada">

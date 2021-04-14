@@ -1,0 +1,11 @@
+.alerta {
+
+    padding: .5rem;
+    p {
+        margin: 0%;
+    }
+
+    &.error {
+        color: $error;
+    }
+}

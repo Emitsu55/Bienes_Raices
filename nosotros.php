@@ -8,9 +8,9 @@ incluirTemplate('header');
         <div class="contenido-nosotros">
             <div class="imagen">
                 <picture>
-                    <source srcset="build/img/nosotros.webp" type="image/webp">
-                    <source srcset="build/img/nosotros.jpg" type="image/jpeg">
-                    <img src="build/img/nosotros.jpg" alt="Imagen nosotros" loading="lazy">
+                    <source srcset="/build/img/nosotros.webp" type="image/webp">
+                    <source srcset="/build/img/nosotros.jpg" type="image/jpeg">
+                    <img src="/build/img/nosotros.jpg" alt="Imagen nosotros" loading="lazy">
                 </picture>
             </div>
             <div class="texto-nosotros">
@@ -32,21 +32,21 @@ incluirTemplate('header');
         <h2>Más Sobre Nosotros</h2>
         <div class="contenedor iconos-nosotros">
             <div class="icono">
-                <img src="build/img/icono1.svg" alt="icono Seguridad" loading='lazy'>
+                <img src="/build/img/icono1.svg" alt="icono Seguridad" loading='lazy'>
                 <h3>Seguridad</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ratione dolore a, inventore
                     quaerat quas aliquam praesentium expedita vel similique ducimus! Hic possimus odio nam. Asperiores
                     corporis eum impedit labore?</p>
             </div>
             <div class="icono">
-                <img src="build/img/icono2.svg" alt="icono precio" loading='lazy'>
+                <img src="/build/img/icono2.svg" alt="icono precio" loading='lazy'>
                 <h3>Precio</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ratione dolore a, inventore
                     quaerat quas aliquam praesentium expedita vel similique ducimus! Hic possimus odio nam. Asperiores
                     corporis eum impedit labore?</p>
             </div>
             <div class="icono">
-                <img src="build/img/icono3.svg" alt="icono a tiempo" loading='lazy'>
+                <img src="/build/img/icono3.svg" alt="icono a tiempo" loading='lazy'>
                 <h3>A tiempo</h3>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ratione dolore a, inventore
                     quaerat quas aliquam praesentium expedita vel similique ducimus! Hic possimus odio nam. Asperiores

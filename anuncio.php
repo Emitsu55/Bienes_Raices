@@ -6,9 +6,9 @@ incluirTemplate('header');
     <main class="seccion contenedor contenido-centrado">
         <h1>Casa en Venta frente al Bosque</h1>
         <picture>
-            <source srcset="build/img/destacada.webp" type="image/webp">
-            <source srcset="build/img/destacada.jpeg" type="image/jpeg">
-            <img loading="lazy" src="build/img/destacada.jpg" alt="imageb propiedad">
+            <source srcset="/build/img/destacada.webp" type="image/webp">
+            <source srcset="/build/img/destacada.jpeg" type="image/jpeg">
+            <img loading="lazy" src="/build/img/destacada.jpg" alt="imageb propiedad">
         </picture>
         <div class="resumen-propiedad">
             <p class="precio">
@@ -17,16 +17,16 @@ incluirTemplate('header');
 
             <ul class="iconos-caracteristicas">
                 <li>
-                    <img src="build/img/icono_wc.svg" class="icono" alt="icono wc" loading='lazy'>
+                    <img src="/build/img/icono_wc.svg" class="icono" alt="icono wc" loading='lazy'>
                     <p>3</p>
                 </li>
                 <li>
-                    <img src="build/img/icono_estacionamiento.svg" class="icono" alt="icono icono_estacionamiento"
+                    <img src="/build/img/icono_estacionamiento.svg" class="icono" alt="icono icono_estacionamiento"
                         loading='lazy'>
                     <p>3</p>
                 </li>
                 <li>
-                    <img src="build/img/icono_dormitorio.svg" class="icono" alt="icono dormitorio" loading='lazy'>
+                    <img src="/build/img/icono_dormitorio.svg" class="icono" alt="icono dormitorio" loading='lazy'>
                     <p>4</p>
                 </li>
             </ul>

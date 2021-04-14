@@ -8,9 +8,9 @@ incluirTemplate('header');
     <main class="contenedor">
         <h1>Contacto</h1>
         <picture>
-            <source srcset="build/img/destacada3.webp" type="image/webp">
-            <source srcset="build/img/destacada3.jpg" type="image/jpeg">
-            <img loading="lazy" src="build/img/destacada3.jpg" alt="Imagen contacto">
+            <source srcset="/build/img/destacada3.webp" type="image/webp">
+            <source srcset="/build/img/destacada3.jpg" type="image/jpeg">
+            <img loading="lazy" src="/build/img/destacada3.jpg" alt="Imagen contacto">
         </picture>
         <h2>Llene el Formulario de Contacto</h2>
         <form action="" class="formulario">
