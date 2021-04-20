@@ -7,5 +7,10 @@
 
     &.error {
         color: $error;
+    } 
+    &.success {
+        color: $success;
+        text-align: center;
+        font-size: 3rem; 
     }
 }
