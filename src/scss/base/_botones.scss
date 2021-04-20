@@ -8,3 +8,10 @@
 .btn-verde {
     @include boton($verde, inline-block);
 }
+
+.btn-rojo-block {
+    @include boton($error, block);
+}
+.btn-verde-block {
+    @include boton($success, block);
+}
