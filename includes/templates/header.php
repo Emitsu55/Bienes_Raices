@@ -30,8 +30,13 @@
                         <a href="contacto.php">Contacto</a>
                     </nav>
                 </div>
-            </div>
-            <!--Cierre barra-->
+            </div><!--Cierre barra-->
+
+            <?php
+            if($inicio) {
+                echo '<h1>Venta de Casas y Departamentos Exclusivos de Lujo</h1>';
+            }
+            ?>
         </div>
     </header>
     <!--Cierre header-->
