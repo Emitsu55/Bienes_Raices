@@ -11,6 +11,7 @@
 
 .btn-rojo-block {
     @include boton($error, block);
+    width: 100%;
 }
 .btn-verde-block {
     @include boton($success, block);
