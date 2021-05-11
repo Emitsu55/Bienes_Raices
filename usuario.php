@@ -3,7 +3,7 @@
 // //Creacion del usuario y hasheo de password
 
 // //Importar la conexion 
-// require 'includes/config/database.php';
+// require 'includes/config/app.php';
 // $db = conectarDB();
 
 // //Crear email y pasword

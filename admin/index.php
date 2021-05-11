@@ -1,24 +1,11 @@
 <?php
-require '../includes/funciones.php';
+require '../includes/app.php';
+estaAutenticado();
 
-$auth = estaAutenticado();
+use App\Propiedad;
 
-if(!$auth) {
-    header('Location: /');
-}
-
-
-// 1- importar la conexion 
-require '../includes/config/database.php';
-$db = conectarDB();
-
-// 2- escribir el query
-$query = "SELECT * FROM propiedades";
-
-
-
-// 3- Consultar la BD
-$resultadoConsulta = mysqli_query($db, $query);
+//Implementar metodo para obtener propiedades utilizando active record
+$propiedad = Propiedad::all();
 
 //Muestra mensaje condicional
 $resultado = $_GET['resultado'] ?? null; //el ?? le asigna nulo en caso de no existir 

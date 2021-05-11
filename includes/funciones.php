@@ -1,6 +1,12 @@
-<?php 
+<?php
 
-require 'app.php';
+// de esta forma evito colocar todo el codigo del includes
+// El dir enlaza la direccion exacta y le permite a php rastrear el archivo
+
+define('TEMPLATES_URL', __DIR__ . '/templates');
+define('FUNCIONES_URL', __DIR__ . 'funciones.php');
+define('CARPETA_IMAGENES', __DIR__ . '/../imagenes/');
+
 
 function incluirTemplate(string $nombre, bool $inicio = false) {
     include TEMPLATES_URL . "/${nombre}.php";
@@ -9,11 +15,16 @@ function incluirTemplate(string $nombre, bool $inicio = false) {
 function estaAutenticado() {
     session_start();
 
-    $auth = $_SESSION['login'];
+    // if(!$_SESSION['login']) {
+    //     header('Location /');
+    // }
 
-    if($auth) {
-        return true;
-    }
+}
 
-    return false;
+function debuguear($variable) {
+
+    echo '<pre>';
+    var_dump($variable);
+    echo '<pre>';
+    exit;
 }

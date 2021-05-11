@@ -1,0 +1,19 @@
+{
+    "name": "laura/bienes_raices",
+    "description": "A\u0000adiedo POO",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Emitsu55",
+            "email": "emitsu.studios@gmail.com"
+        }
+    ],
+    "require": {
+        "intervention/image": "^2.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\" : "./classes"
+        }
+    }
+}

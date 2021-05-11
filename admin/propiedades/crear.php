@@ -1,16 +1,13 @@
 <?php
 
-require '../../includes/funciones.php';
+require '../../includes/app.php';
 
-$auth = estaAutenticado();
+use App\Propiedad;
+use Intervention\Image\ImageManagerStatic as Image;
 
-if(!$auth) {
-    header('Location: /');
-}
+estaAutenticado();
 
 //Base de datos
-
-require '../../includes/config/database.php';
 $db = conectarDB();
 
 
@@ -22,7 +19,8 @@ $resultado = mysqli_query($db, $consulta);
 
 //Array con mensajes de error
 
-$errores = [];
+$errores = Propiedad::getErrores();
+
 
 //Iniciar las variables
 $titulo = '';
@@ -37,88 +35,52 @@ $vendedorId = '';
 //Ejecutar el codigo despues del envio de formulario
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-    // echo "<pre>";
-    // var_dump($_POST);
-    // echo "</pre>";
+    //Crear la nueva instancia    
+    $propiedad = new Propiedad($_POST);
 
-    //Almacenando datos del formulario en variables
-    $titulo = mysqli_real_escape_string($db, $_POST['titulo']);  //mysqli_real** esta funcion impide que se ingresen comando de sql al formulario y da seguridad al formulario
-    $precio = mysqli_real_escape_string($db, $_POST['precio']);
-    $descripcion = mysqli_real_escape_string($db, $_POST['descripcion']);
-    $habitaciones = mysqli_real_escape_string($db, $_POST['habitaciones']);
-    $wc = mysqli_real_escape_string($db, $_POST['baños']);
-    $estacionamiento = mysqli_real_escape_string($db, $_POST['estacionamientos']);
-    $vendedorId = mysqli_real_escape_string($db, $_POST['vendedor']);
-    $creado = date('Y/m/d');
+    //Generar nombre unico para la imagen
+    $nombreImagen = md5(uniqid(rand(), true)) . ".jpg";
 
-    //Asignar files a una variable
-    $imagen = $_FILES['imagen'];
-    var_dump($imagen['name']);
+    //Setear la imagen
+    //Realizar un resize a la imagen con intervention image
+    if ($_FILES['imagen']['tmp_name']) {
 
-
-    if (!$titulo) {
-        $errores[] = '*Debes añadir un titulo';
-    }
-    if (!$precio) {
-        $errores[] = '*Debes añadir el precio';
-    }
-    if (strlen($descripcion) < 30) {
-        $errores[] = '*La descripción es obligatoria y debe tener al menos 30 caracteres';
-    }
-    if (!$habitaciones) {
-        $errores[] = '*Debes añadir el número de habitaciones';
-    }
-    if (!$wc) {
-        $errores[] = '*Debes añadir el número de baños';
-    }
-    if (!$estacionamiento) {
-        $errores[] = '*Debes añadir el número de estacionamientos';
-    }
-    if (!$vendedorId) {
-        $errores[] = '*Elige un vendedor';
-    }
-    if(!$imagen['name'] || $imagen['error']) {
-        $errores[] = '*Debes subir una imagen';
+        $image = Image::make($_FILES['imagen']['tmp_name'])->fit(800, 600);
+        $propiedad->setImage($nombreImagen);
     }
 
-    //validar maximo tamaño imagen
+    //Validacion    
+    $errores = $propiedad->validar();
 
-    $medida = 5000 * 100; //transformar de bytes a kilobytes
 
-    if($imagen['size'] > $medida) {
-        $errores[] = '*La imagen no debe superar los 5Mb';
-    } 
+    // //Almacenando datos del formulario en variables
+    // $titulo = mysqli_real_escape_string($db, $_POST['titulo']);  //mysqli_real** esta funcion impide que se ingresen comando de sql al formulario y da seguridad al formulario
+    // $precio = mysqli_real_escape_string($db, $_POST['precio']);
+    // $descripcion = mysqli_real_escape_string($db, $_POST['descripcion']);
+    // $habitaciones = mysqli_real_escape_string($db, $_POST['habitaciones']);
+    // $wc = mysqli_real_escape_string($db, $_POST['baños']);
+    // $estacionamiento = mysqli_real_escape_string($db, $_POST['estacionamiento']);
+    // $vendedorId = mysqli_real_escape_string($db, $_POST['vendedor']);
+    // $creado = date('Y/m/d');
 
     //Revisar que el Array de errores este vacio
 
     if (empty($errores)) {
 
-        //Subida de archivos
-
-        //crear carpetas
-        $carpetaImagenes = '../../imagenes/';
         
-        if(!is_dir($carpetaImagenes)) {
-        mkdir($carpetaImagenes);  //Crea la carpeta
-    }
+        //crear carpetas
+        if (!is_dir(CARPETA_IMAGENES)) {
+            mkdir(CARPETA_IMAGENES);  //Crea la carpeta
+        }
 
-    //Generar nombre unico para la imagen
-    $nombreImagen = md5(uniqid(rand(), true)) . ".jpg";
-
-    //Subir la imagen
-
-    move_uploaded_file($imagen['tmp_name'], $carpetaImagenes . $nombreImagen);
-
-
-
-        //insertar a la base de datos
-
-        $query = " INSERT INTO propiedades (titulo, precio, imagen, descripcion, habitaciones, wc, estacionamiento, creado, vendedorId) VALUES ('$titulo', '$precio', '$nombreImagen', '$descripcion', '$habitaciones', '$wc', '$estacionamiento', '$creado', '$vendedorId'); ";
-        //En la variable $query cree el comando de mysql para agregar el contenido del formulario a la base de datos
-        echo ($query);
-
-        $resultado = mysqli_query($db, $query);
-
+        //Subida de archivos
+        //Guardar la imagen en el servidor
+        $image->save(CARPETA_IMAGENES . $nombreImagen);
+        
+        //insertar a la base de datos 
+        $resultado = $propiedad->guardar();
+        
+        //Mensaje de exito
         if ($resultado) {
             header('Location: /admin?resultado=1');  //query string
         }
@@ -141,7 +103,7 @@ incluirTemplate('header');
     ?>
 
 
-    <form action="/admin/propiedades/crear.php" class="formulario" method="POST" enctype="multipart/form-data" >
+    <form action="/admin/propiedades/crear.php" class="formulario" method="POST" enctype="multipart/form-data">
 
         <fieldset>
             <legend>Información General</legend>
@@ -167,11 +129,11 @@ incluirTemplate('header');
             <label for="habitaciones">Habitaciones:</label>
             <input value="<?php echo $habitaciones; ?>" id="habitaciones" name="habitaciones" type="number" placeholder="Número Habitaciones" min="1" max="9">
 
-            <label for="baños">Baños:</label>
-            <input value="<?php echo $wc; ?>" id="baños" name="baños" type="number" placeholder="Número Baños" min="1" max="9">
+            <label for="wc">Baños:</label>
+            <input value="<?php echo $wc; ?>" id="wc" name="wc" type="number" placeholder="Número Baños" min="1" max="9">
 
-            <label for="estacionamientos">Estacionamientos:</label>
-            <input value="<?php echo $estacionamiento; ?>" id="estacionamientos" name="estacionamientos" type="number" placeholder="Número Estacionamientos" min="1" max="9">
+            <label for="estacionamiento">Estacionamientos:</label>
+            <input value="<?php echo $estacionamiento; ?>" id="estacionamiento" name="estacionamiento" type="number" placeholder="Número Estacionamientos" min="1" max="9">
 
         </fieldset>
 
@@ -179,7 +141,7 @@ incluirTemplate('header');
 
             <legend>Vendedor</legend>
 
-            <select name="vendedor">
+            <select name="vendedorId">
 
                 <option value="">--Selecionar Vendedor--</option>
                 <?php while ($vendedor = mysqli_fetch_assoc($resultado)) : ?>
