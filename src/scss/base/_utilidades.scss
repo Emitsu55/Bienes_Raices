@@ -11,8 +11,17 @@
     justify-content: flex-end;
 }
 
+.txt-center {
+    text-align: center;
+}
+
 .contenido-centrado {
     max-width: 80rem;
+    margin: 0 auto;
+
+    &.loginForm {
+        max-width: 40rem;
+    }
 }
 
 .mostrar {

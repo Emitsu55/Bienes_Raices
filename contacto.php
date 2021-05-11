@@ -1,46 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
+ <?php
+require 'includes/app.php'; 
+incluirTemplate('header'); 
+?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="build/css/app.css">
-    <title>Contacto</title>
-</head>
 
-<body>
-
-    <header class="header">
-        <div class="contenedor contenido-header">
-            <div class="barra">
-
-                <a href="index.html"><img src="build/img/logo.svg" alt="Logo Bienes Raices"></a>
-
-                <div class="mobile-menu">
-                    <img src="build/img/barras.svg" alt="icono menu responsive">
-                </div>
-
-                <div class="derecha">
-                    <img class="btn-dark-mode" src="build/img/dark-mode.svg" alt="">
-                    <nav class="navegacion">
-                        <a href="nosotros.html">Nosotros</a>
-                        <a href="anuncios.html">Anuncios</a>
-                        <a href="blog.htm">Blog</a>
-                        <a href="contacto.html">Contacto</a>
-                    </nav>
-                </div>
-            </div><!--Cierre barra-->
-        </div>
-    </header>
-    <!--Cierre header-->
 
     <main class="contenedor">
         <h1>Contacto</h1>
         <picture>
-            <source srcset="build/img/destacada3.webp" type="image/webp">
-            <source srcset="build/img/destacada3.jpg" type="image/jpeg">
-            <img loading="lazy" src="build/img/destacada3.jpg" alt="Imagen contacto">
+            <source srcset="/build/img/destacada3.webp" type="image/webp">
+            <source srcset="/build/img/destacada3.jpg" type="image/jpeg">
+            <img loading="lazy" src="/build/img/destacada3.jpg" alt="Imagen contacto">
         </picture>
         <h2>Llene el Formulario de Contacto</h2>
         <form action="" class="formulario">
@@ -105,24 +75,11 @@
 
 
 
-    <footer class="footer seccion">
-
-        <div class=" contenedor contenedor-footer">
-            <nav class="navegacion">
-                <a href="nosotros.html">Nosotros</a>
-                <a href="anuncios.html">Anuncios</a>
-                <a href="blog.htm">Blog</a>
-                <a href="contacto.html">Contacto</a>
-            </nav><!--Cierre navegacion-->
-        </div>
-        <p class="copyright">Todos los derechos reservados &copy;</p>
-
-    </footer>
+<?php
+incluirTemplate('footer');
+?>;
 
 
 
 
-    <script src="build/js/bundle.min.js"></script>
-</body>
-
-</html>
+ 

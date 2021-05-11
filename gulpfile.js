@@ -26,7 +26,7 @@ function css() {
         .pipe(postcss([autoprefixer(), cssnano()]))
         // .pipe(postcss([autoprefixer()]))
         .pipe(sourcemaps.write('.'))
-        .pipe( dest('./build/css') );
+        .pipe( dest('.//build/css') );
 }
 
 
@@ -37,20 +37,20 @@ function javascript() {
       .pipe(terser())
       .pipe(sourcemaps.write('.'))
       .pipe(rename({ suffix: '.min' }))
-      .pipe(dest('./build/js'))
+      .pipe(dest('.//build/js'))
 }
 
 function imagenes() {
     return src(paths.imagenes)
         .pipe(cache(imagemin({ optimizationLevel: 3})))
-        .pipe(dest('build/img'))
+        .pipe(dest('/build/img'))
         .pipe(notify({ message: 'Imagen Completada'}));
 }
 
 function versionWebp() {
     return src(paths.imagenes)
         .pipe( webp() )
-        .pipe(dest('build/img'))
+        .pipe(dest('/build/img'))
         .pipe(notify({ message: 'Imagen Completada'}));
 }
 
@@ -62,4 +62,5 @@ function watchArchivos() {
     watch( paths.imagenes, versionWebp );
 }
   
-exports.default = parallel(css, javascript,  imagenes, versionWebp, watchArchivos ); 
+exports.default = parallel(css, javascript, watchArchivos ); 
+// exports.default = parallel(css, javascript,  imagenes, versionWebp, watchArchivos ); 
