@@ -41,10 +41,22 @@ class Propiedad
         $this->wc = $args['wc'] ?? '';
         $this->estacionamiento = $args['estacionamiento'] ?? '';
         $this->creado = date('Y/m/d');
-        $this->vendedorId = $args['vendedorId'] ?? '';
+        $this->vendedorId = $args['vendedorId'] ?? 1;
     }
 
-    public function guardar()
+    public function guardar() {
+        
+        if(isset($this->id)) {
+            //Actualizar 
+            $this->actualizar();
+        } else {
+            //Crear nuevo registro
+            $this->crear();
+            
+        }
+    }
+
+    public function crear()
     {
         //Sanitizar los datos
         $atributos = $this->sanitizarDatos();
@@ -58,6 +70,27 @@ class Propiedad
         $resultado = self::$db->query($query);
         
         return $resultado;
+    }
+
+    public function actualizar() {
+        //sanitizar los datos
+        $atributos = $this->sanitizarDatos();
+
+        $valores = [];
+        foreach($atributos as $key=>$value) {
+            $valores[] = "{$key} = '{$value}'";
+        }
+
+        $query = "UPDATE propiedades SET ";
+        $query .= join(', ', $valores); //Une valores de un array en un string y los separa por una ','
+        $query .= " WHERE  id = '" . self::$db->escape_string($this->id) . "'";
+        $query .= " LIMIT 1;";
+
+        $resultado = self::$db->query($query);
+
+        if ($resultado) {
+            header('Location: /admin?resultado=2');  //query string
+        }
     }
 
     //identificar y unir atributos de la DB
@@ -85,6 +118,16 @@ class Propiedad
 
     //Subida de archivos
     public function setImage($imagen){
+
+        //eliminar imagen anterior
+        if(isset($this->id)){   //isset revisa que exista y que ademas tenga un valor
+            //Comprobar si existe el archivo
+            $existeArchivo = file_exists(CARPETA_IMAGENES . $this->imagen);
+            
+            if($existeArchivo) {
+                unlink(CARPETA_IMAGENES . $this->imagen);
+            }
+        }
         //Asignar al atributo de imagen el nombre de la imagen
         if($imagen) {
             $this->imagen = $imagen;
@@ -134,9 +177,18 @@ class Propiedad
 
         $resultado = self::consultarSql($query);
 
+        
+        return $resultado;
 
+    }
 
-        debuguear($resultado->fetch_assoc());
+    //Buscar un registro por su id
+    public static function find($id) {
+        $query = "SELECT * FROM propiedades WHERE id = ${id}";
+
+        $resultado = self::consultarSql(($query));
+
+        return array_shift($resultado); //Array_shift devuelve la primer posicion de un arreglo
     }
 
     public static function consultarSql($query){
@@ -144,10 +196,42 @@ class Propiedad
         $resultado = self::$db->query($query);
 
         //Iterar los resultados
+        $array = [];
+        while($registro = $resultado->fetch_assoc()) {
+            $array[] = self::crearObjeto($registro);
+        }
 
         //Liberar memoria
+        $resultado->free();
 
         //Retornar los resultados
-         
+        return $array; 
+    }
+
+    protected static function crearObjeto($registro){
+
+        $objeto = new self;
+
+        foreach($registro as $key => $value) {
+            if(property_exists($objeto, $key)) { //Compara si el primero objeto, tiene la propiedad '$key'
+
+                $objeto->$key = $value; //Le inserta en la key que ya comprobo que existe el valor iterado
+            }
+
+        }
+
+        return $objeto;
+
+    }
+
+    //Sincroniza el objeto en memoria con los cambios realizados por el suario
+    public function sincronizar($args = []) {
+
+        foreach($args as $key => $value) {
+            if(property_exists($this, $key) && !is_null($value)) {
+                $this->$key = $value;
+            }
+        }
+
     }
 }

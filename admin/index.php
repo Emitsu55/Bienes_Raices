@@ -5,7 +5,7 @@ estaAutenticado();
 use App\Propiedad;
 
 //Implementar metodo para obtener propiedades utilizando active record
-$propiedad = Propiedad::all();
+$propiedades = Propiedad::all();
 
 //Muestra mensaje condicional
 $resultado = $_GET['resultado'] ?? null; //el ?? le asigna nulo en caso de no existir 
@@ -69,21 +69,21 @@ incluirTemplate('header');
         </thead>
         <tbody><!-- 4- Mostrar los resultados-->
             
-        <?php while ($propiedad = mysqli_fetch_assoc($resultadoConsulta)): ?>
+        <?php foreach ($propiedades as $propiedad): ?>
             <tr>
-                <td><?php echo $propiedad['id']; ?></td>
-                <td><?php echo $propiedad['titulo']; ?></td>
-                <td><img src="<?php echo "/imagenes/" . $propiedad['imagen']; ?>" class="imagen-tabla" alt=""></td>
-                <td><?php echo $propiedad['precio']; ?></td>
+                <td><?php echo $propiedad->id; ?></td>
+                <td><?php echo $propiedad->titulo; ?></td>
+                <td><img src="<?php echo "/imagenes/" . $propiedad->imagen; ?>" class="imagen-tabla" alt=""></td>
+                <td><?php echo $propiedad->precio; ?></td>
                 <td>
                     <form method="POST" class="w-100">
-                    <input type="hidden" name="id" value="<?php echo $propiedad['id']; ?>">
+                    <input type="hidden" name="id" value="<?php echo $propiedad->id; ?>">
                     <input type="submit" class="btn-rojo-block" value="Eliminar Registro">
                     </form>
-                    <a href="/admin/propiedades/actualizar.php?id=<?php echo $propiedad['id']; ?>" class="btn-verde-block">Actualizar</a>
+                    <a href="/admin/propiedades/actualizar.php?id=<?php echo $propiedad->id; ?>" class="btn-verde-block">Actualizar</a>
                 </td>
             </tr>
-        <?php endwhile; ?>    
+        <?php endforeach; ?>    
         </tbody>
     </table>
 
