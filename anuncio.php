@@ -41,7 +41,7 @@ incluirTemplate('header');
                 <li>
                     <img src="/build/img/icono_wc.svg" class="icono" alt="icono wc" loading='lazy'>
                     <p>
-                    <?php echo $propiedad['WC']; ?>
+                    <?php echo $propiedad['wc']; ?>
                     </p>
                 </li>
                 <li>

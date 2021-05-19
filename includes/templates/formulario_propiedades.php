@@ -38,14 +38,15 @@
 
             <legend>Vendedor</legend>
 
-            <!-- <select name="vendedorId"> -->
-
-                <!-- <option value="">--Selecionar Vendedor--</option> -->
-                <?php //while ($vendedor = mysqli_fetch_assoc($resultado)) : ?>
-                    <!-- <option <?php // echo s($propiedad->vendedorId) == $vendedor['id'] ? 'selected' : '';  ?> value="<?php //echo s($propiedad->vendedorId); ?>"> <?php //echo $propiedad->vendedor['nombre'] . ' ' . $vendedor['apellido']; ?></option> -->
-
-                <?php //endwhile; ?>
-
+            <label for="vendedor">Selecciona el vendedor</label>
+            <select name="propiedad[vendedorId]" id="vendedor">
+            <option value="" selected disabled>--Seleccionar Vendedor--</option>
+            <?php foreach( $vendedores as $vendedor){ ?>
+                <option
+                <?php echo $propiedad->vendedorId === $vendedor->id ? 'selected': ''; ?> 
+                value="<?php echo s($vendedor->id); ?>"><?php echo s($vendedor->nombre) . " " . s($vendedor->apellido); ?></option>
+            <?php
+            }?>
             </select>
 
         </fieldset>

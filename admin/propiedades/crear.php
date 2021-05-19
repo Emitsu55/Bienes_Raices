@@ -2,6 +2,7 @@
 require '../../includes/app.php';
 
 use App\Propiedad;
+use App\Vendedor;
 use Intervention\Image\ImageManagerStatic as Image;
 
 estaAutenticado();
@@ -9,10 +10,8 @@ estaAutenticado();
 
 $propiedad = new Propiedad;
 
-//consultar para obtener los vendedores
-
-$consulta = "SELECT * FROM vendedores;";
-$resultado = mysqli_query($db, $consulta);
+//consulta para obtener los vendedores
+$vendedores = Vendedor::all();
 
 
 //Array con mensajes de error

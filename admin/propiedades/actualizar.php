@@ -1,6 +1,7 @@
 <?php
 
 use App\Propiedad;
+use App\Vendedor;
 use Intervention\Image\ImageManagerStatic as Image;
 
 require '../../includes/app.php';
@@ -18,6 +19,8 @@ if (!$id) {
 //obtener los datos de la propiedad
 $propiedad = Propiedad::find($id);
 
+//consulta para obtener los vendedores
+$vendedores = Vendedor::all();
 
 //Array con mensajes de error
 
