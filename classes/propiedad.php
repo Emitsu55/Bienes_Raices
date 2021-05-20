@@ -39,28 +39,28 @@ class Propiedad extends ActiveRecord {
     {
 
         if (!$this->titulo) {
-            self::$errores[] = '*Debes añadir un titulo';
+            static::$errores[] = '*Debes añadir un titulo';
         }
         if (!$this->precio) {
-            self::$errores[] = '*Debes añadir el precio';
+            static::$errores[] = '*Debes añadir el precio';
         }
         if (strlen($this->descripcion) < 30) {
             $errores[] = '*La descripción es obligatoria y debe tener al menos 30 caracteres';
         }
         if (!$this->habitaciones) {
-            self::$errores[] = '*Debes añadir el número de habitaciones';
+            static::$errores[] = '*Debes añadir el número de habitaciones';
         }
         if (!$this->wc) {
-            self::$errores[] = '*Debes añadir el número de baños';
+            static::$errores[] = '*Debes añadir el número de baños';
         }
         if (!$this->estacionamiento) {
-            self::$errores[] = '*Debes añadir el número de estacionamientos';
+            static::$errores[] = '*Debes añadir el número de estacionamientos';
         }
         if (!$this->vendedorId) {
-            self::$errores[] = '*Elige un vendedor';
+            static::$errores[] = '*Elige un vendedor';
         }
         if (!$this->imagen) {
-            self::$errores[] = '*Debes subir una imagen';
+            static::$errores[] = '*Debes subir una imagen';
         }
 
         return static::$errores;
