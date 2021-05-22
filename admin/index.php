@@ -56,13 +56,13 @@ incluirTemplate('header');
 <main class="contenedor seccion">
     <h1>Administrador de Bienes Raices</h1>
 
-    <?php if (intval($resultado) === 1) : ?>
-        <p class="alerta success">¡Registro Creado Exitosamente!</p>
-    <?php elseif(intval($resultado) === 2) : ?>
-    <p class="alerta success">¡Registro Actualizado!</p>
-    <?php elseif(intval($resultado) === 3) : ?>
-    <p class="alerta success">¡Registro Eliminado!</p>
-    <?php endif; ?>
+    <?php 
+    
+    $mensaje = mostrarNotificaion(intval($resultado));
+
+    if($mensaje) { ?>
+         <p class="alerta success"><?php echo s($mensaje); ?></p>
+    <?php } ?>
 
     <h2>Propiedades</h2>
 
@@ -99,6 +99,9 @@ incluirTemplate('header');
     <a href="/admin/propiedades/crear.php" class="btn btn-verde">Nueva Propiedad</a>
 
     <table class="propiedades">
+
+    <h2>Vendedores</h2>
+
         <thead>
             <tr>
                 <th>Id</th>
@@ -137,5 +140,3 @@ mysqli_close($db);
 
 incluirTemplate('footer');
 
-
-?>

@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     //Crear la nueva instancia    
     $vendedor = new Vendedor($_POST['vendedor']);
-
+    
     //Validacion    
     $errores = $vendedor->validar();
 
@@ -51,7 +51,7 @@ incluirTemplate('header');
     ?>
 
 
-    <form action="/admin/vendedores/crear.php" class="formulario" method="POST" enctype="multipart/form-data">
+    <form action="/admin/vendedores/crear.php" class="formulario" method="POST">
 
         <?php include '../../includes/templates/formulario_vendedores.php'; ?>
 

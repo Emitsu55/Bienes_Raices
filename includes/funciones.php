@@ -41,3 +41,27 @@ function validarTipoContenido($tipo) {
 
     return in_array($tipo, $tipos);
 }
+
+//Muestra las alertas
+function mostrarNotificaion($codigo) {
+    $mensaje = [];
+
+    switch($codigo) {
+
+        case 1:
+            $mensaje = 'Registro Exitoso';
+            break;
+        case 2: 
+            $mensaje = 'Registro Actualizado';
+            break;
+        case 3: 
+            $mensaje = 'Registro Eliminado'; 
+            break;
+        default: 
+            $mensaje = false;
+            break;
+
+        } 
+        return $mensaje;
+
+}
