@@ -28,3 +28,40 @@ function debuguear($variable) {
     echo '<pre>';
     exit;
 }
+
+//Escapa /sanitiza el html
+function s($html) : string {
+    $s = htmlspecialchars($html);
+    return $s;
+}
+
+//Validar tipo de contenido 
+function validarTipoContenido($tipo) {
+    $tipos = ['propiedad', 'vendedor'];
+
+    return in_array($tipo, $tipos);
+}
+
+//Muestra las alertas
+function mostrarNotificaion($codigo) {
+    $mensaje = [];
+
+    switch($codigo) {
+
+        case 1:
+            $mensaje = 'Registro Exitoso';
+            break;
+        case 2: 
+            $mensaje = 'Registro Actualizado';
+            break;
+        case 3: 
+            $mensaje = 'Registro Eliminado'; 
+            break;
+        default: 
+            $mensaje = false;
+            break;
+
+        } 
+        return $mensaje;
+
+}

@@ -1,4 +1,7 @@
  <?php
+require 'includes/app.php';
+
+ use App\Propiedad;
 
 $id = $_GET['id'];
 $id = filter_var($id, FILTER_VALIDATE_INT);
@@ -7,73 +10,57 @@ if(!$id) {
     header('Location: anuncios.php');
 }
 
+$propiedad = Propiedad::find($id);
+
 //Importar conexion
-require 'includes/app.php';
-$db = conectarDB();
 
-// Obtener los datos de la propiedad
-$query = "SELECT * FROM propiedades WHERE id = ${id};";
-$resultado = mysqli_query($db, $query);
-
-if(!$resultado->num_rows === 0) {
-    header('Location: anuncios.php');
-}
-
-$propiedad = mysqli_fetch_assoc($resultado);
-
- 
 incluirTemplate('header'); 
 ?>
 
     <main class="seccion contenedor contenido-centrado">
         <h1>
-        <?php echo $propiedad['titulo']; ?>
+        <?php echo $propiedad->titulo; ?>
         </h1>
         
-            <img loading="lazy" src="<?php echo 'imagenes/' . $propiedad['imagen']; ?>" alt="imagen propiedad">
+            <img loading="lazy" src="<?php echo 'imagenes/' . $propiedad->imagen; ?>" alt="imagen propiedad">
         
         <div class="resumen-propiedad">
             <p class="precio">
-            <?php echo '$' . $propiedad['precio']; ?>
+            <?php echo '$' . $propiedad->precio; ?>
             </p>
 
             <ul class="iconos-caracteristicas">
                 <li>
                     <img src="/build/img/icono_wc.svg" class="icono" alt="icono wc" loading='lazy'>
                     <p>
-                    <?php echo $propiedad['WC']; ?>
+                    <?php echo $propiedad->wc; ?>
                     </p>
                 </li>
                 <li>
                     <img src="/build/img/icono_estacionamiento.svg" class="icono" alt="icono icono_estacionamiento"
                         loading='lazy'>
                     <p>
-                    <?php echo $propiedad['estacionamiento']; ?>
+                    <?php echo $propiedad->estacionamiento; ?>
                     </p>
                 </li>
                 <li>
                     <img src="/build/img/icono_dormitorio.svg" class="icono" alt="icono dormitorio" loading='lazy'>
                     <p>
-                    <?php echo $propiedad['habitaciones']; ?>
+                    <?php echo $propiedad->habitaciones; ?>
                     </p>
                 </li>
             </ul>
             <p>
-            <?php echo $propiedad['descripcion']; ?>
+            <?php echo $propiedad->descripcion; ?>
             </p>
         </div>
 
         </div>
 
 
-    </main>
-    <!--cierre seccion anuncios-->
-
-
+    </main><!--cierre seccion anuncios-->
 
    <?php
-
-mysqli_close($db);
 
 incluirTemplate('footer');
 ?>;
